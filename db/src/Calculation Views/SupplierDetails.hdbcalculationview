@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SupplierDetails" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" application="BAS" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="SupplierDetails.hdbcalculationview"/>
+<localVariables>
+  <variable id="Variable_Country">
+    <descriptions defaultDescription="Variable"/>
+    <variableProperties datatype="NVARCHAR" length="100" mandatory="true" defaultValue="">
+      <valueDomain type="AttributeValue">
+        <attribute name="Country"/>
+      </valueDomain>
+      <selection multiLine="true" type="SingleValue"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="Suppliers">
+    <resourceUri>Suppliers</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="Suppliers">
+  <attributes>
+    <attribute id="SupplierID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SupplierID"/>
+      <keyMapping columnObjectName="Suppliers" columnName="SupplierID"/>
+    </attribute>
+    <attribute id="SupplierName" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SupplierName"/>
+      <keyMapping columnObjectName="Suppliers" columnName="SupplierName"/>
+    </attribute>
+    <attribute id="ContactName" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ContactName"/>
+      <keyMapping columnObjectName="Suppliers" columnName="ContactName"/>
+    </attribute>
+    <attribute id="Country" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Country"/>
+      <localVariable>Variable_Country</localVariable>
+      <keyMapping columnObjectName="Suppliers" columnName="Country"/>
+    </attribute>
+    <attribute id="City" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="City"/>
+      <keyMapping columnObjectName="Suppliers" columnName="City"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

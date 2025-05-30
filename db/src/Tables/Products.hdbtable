@@ -1,0 +1,6 @@
+COLUMN TABLE "Products" ("ProductID" INT ,
+ "ProductName" NVARCHAR(100)  , "SupplierID" INT ,
+  "CategoryID" INT ,
+  "Unit" NVARCHAR(100) ,
+  "Price" DECIMAL(10,2) ,
+ PRIMARY KEY ("ProductID", "ProductName", "CategoryID"))

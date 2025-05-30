@@ -1,0 +1,2 @@
+COLUMN TABLE "Shippers" ("ShipperID" INT , "ShipperName" NVARCHAR(50) , 
+"Phone" NVARCHAR(20), PRIMARY KEY ("ShipperID", "ShipperName"))

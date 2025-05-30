@@ -1,0 +1,6 @@
+COLUMN TABLE "Categories" 
+(
+"CategoryID" NVARCHAR(3)  NOT NULL , 
+"CategoryName" NVARCHAR(25) NOT NULL , 
+"Description" NVARCHAR(300) DEFAULT '' NOT NULL , 
+PRIMARY KEY ("CategoryID", "CategoryName"))

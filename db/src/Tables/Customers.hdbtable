@@ -1,0 +1,10 @@
+column table "Customers" (
+    "CustomerID" INTEGER  unique not null ,
+    "CustomerName" NVARCHAR(512) unique not null,
+    "ContactName" NVARCHAR(512),
+    "Address" NVARCHAR(512),
+    "City" NVARCHAR(512) ,
+    "PostalCode" NVARCHAR(512),
+    "Country" NVARCHAR(512),
+    PRIMARY KEY ("CustomerID","CustomerName")
+)

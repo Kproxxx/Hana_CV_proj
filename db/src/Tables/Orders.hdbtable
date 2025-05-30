@@ -1,0 +1,6 @@
+COLUMN TABLE "Orders" (
+"OrderID" INT ,
+"CustomerID" INT , 
+"EmployeeID" INT  ,
+ "OrderDate" NVARCHAR(100)  ,
+ "ShipperID" INT , PRIMARY KEY  ("OrderID", "CustomerID","EmployeeID")) 

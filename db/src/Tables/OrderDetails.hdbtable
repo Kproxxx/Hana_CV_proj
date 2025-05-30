@@ -1,0 +1,5 @@
+COLUMN TABLE "OrderDetails" 
+("OrderDetailID" INT , 
+"OrderID" INT , 
+"ProductID" INT , 
+"Quantity" INT ,  PRIMARY KEY ("OrderDetailID", "OrderID"))

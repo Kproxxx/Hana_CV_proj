@@ -1,0 +1,114 @@
+{
+    "format_version": 1,
+    "imports": [{
+	    "target_table": "Customers",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Customers.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+		
+	},
+
+	{
+			"target_table": "Categories",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Categories.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	    
+	},
+	{
+	    "target_table": "Employees",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Employees.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	},
+	{
+	    "target_table": "OrderDetails",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "OrderDetails.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	},{
+	    "target_table": "Orders",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Orders.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	},{
+	    "target_table": "Products",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Products.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	},
+	{
+	    "target_table": "Shippers",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Shippers.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	},
+	{
+	    "target_table": "Suppliers",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "Suppliers.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	},
+	{
+	    "target_table": "SGEOCITY",
+	    "source_data": {
+		    "data_type": "CSV",
+		    "file_name": "SGEOCITY.csv",
+		    "has_header": true,
+		    "dialect": "HANA",
+		    "type_config": {
+			    "delimiter": ","
+		    }
+	    }
+	}]
+
+}
+

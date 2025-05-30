@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="TotalAmountPerOrderID" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" application="BAS" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" mdsCubeConversionExecution="AT_LOADING_TIME">
+<descriptions defaultDescription="TotalAmountPerOrderID.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="OrderDetails">
+    <resourceUri>OrderDetails</resourceUri>
+  </DataSource>
+  <DataSource id="Products">
+    <resourceUri>Products</resourceUri>
+  </DataSource>
+  <DataSource id="Join_2$$$$Products$$">
+    <resourceUri>Products</resourceUri>
+  </DataSource>
+  <DataSource id="Orders">
+    <resourceUri>Orders</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="OrderDetailID" aggregationType="sum"/>
+      <viewAttribute id="OrderID" aggregationType="sum"/>
+      <viewAttribute id="ProductID" aggregationType="sum"/>
+      <viewAttribute id="Quantity" aggregationType="sum"/>
+      <viewAttribute id="ProductName"/>
+      <viewAttribute id="SupplierID" aggregationType="sum"/>
+      <viewAttribute id="CategoryID" aggregationType="sum"/>
+      <viewAttribute id="Unit"/>
+      <viewAttribute id="Price" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$ProductID$ProductID"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="TotalAmount" datatype="DECIMAL" length="13" scale="1" expressionLanguage="SQL">
+        <formula>&quot;Quantity&quot;*&quot;Price&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="OrderDetails">
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderDetailID" source="OrderDetailID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OrderID" source="OrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductID" source="ProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Quantity" source="Quantity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ProductID$ProductID" source="ProductID"/>
+    </input>
+    <input node="Products">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductName" source="ProductName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SupplierID" source="SupplierID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CategoryID" source="CategoryID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Unit" source="Unit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Price" source="Price"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ProductID$ProductID" source="ProductID"/>
+    </input>
+    <joinAttribute name="JOIN$ProductID$ProductID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="ProductName"/>
+      <viewAttribute id="CustomerID" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$ProductName$OrderID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_2$$$$Products$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ProductName" source="ProductName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ProductName$OrderID" source="ProductName"/>
+    </input>
+    <input node="Orders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ProductName$OrderID" source="OrderID"/>
+    </input>
+    <filter>&quot;ProductName&quot;='MOUSE'</filter>
+    <joinAttribute name="JOIN$ProductName$OrderID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="OrderID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OrderID"/>
+      <keyMapping columnObjectName="Join_1" columnName="OrderID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="TotalAmount" order="2" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="TotalAmount"/>
+      <measureMapping columnObjectName="Join_1" columnName="TotalAmount"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="223"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="OrderDetails" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="16" y="32"/>
+      <rectangleSize width="153"/>
+    </shape>
+    <shape modelObjectName="Products" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="233" y="16"/>
+      <rectangleSize width="153"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-149" y="135"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Products" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="153.25146484375"/>
+    </shape>
+    <shape modelObjectName="Orders" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="145.91455078125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

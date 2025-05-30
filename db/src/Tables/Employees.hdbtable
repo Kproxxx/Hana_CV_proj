@@ -1,0 +1,6 @@
+COLUMN TABLE "Employees" ("EmployeeID" INT , 
+"LastName" NVARCHAR(100), 
+"FirstName" NVARCHAR(100)  , 
+"BirthDate" NVARCHAR(100)  ,
+ "Photo" NVARCHAR(100) , 
+ "Notes" NVARCHAR(500) ,  PRIMARY KEY ("EmployeeID", "LastName","FirstName"))
