@@ -10,12 +10,6 @@
   <DataSource id="Products">
     <resourceUri>Products</resourceUri>
   </DataSource>
-  <DataSource id="Join_2$$$$Products$$">
-    <resourceUri>Products</resourceUri>
-  </DataSource>
-  <DataSource id="Orders">
-    <resourceUri>Orders</resourceUri>
-  </DataSource>
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
@@ -54,24 +48,6 @@
     </input>
     <joinAttribute name="JOIN$ProductID$ProductID"/>
   </calculationView>
-  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="CN_N" joinType="inner" filterExpressionLanguage="SQL">
-    <viewAttributes>
-      <viewAttribute id="ProductName"/>
-      <viewAttribute id="CustomerID" aggregationType="sum"/>
-      <viewAttribute hidden="true" id="JOIN$ProductName$OrderID"/>
-    </viewAttributes>
-    <calculatedViewAttributes/>
-    <input node="Join_2$$$$Products$$">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ProductName" source="ProductName"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ProductName$OrderID" source="ProductName"/>
-    </input>
-    <input node="Orders">
-      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ProductName$OrderID" source="OrderID"/>
-    </input>
-    <filter>&quot;ProductName&quot;='MOUSE'</filter>
-    <joinAttribute name="JOIN$ProductName$OrderID"/>
-  </calculationView>
 </calculationViews>
 <logicalModel id="Join_1">
   <attributes>
@@ -109,20 +85,6 @@
     <shape modelObjectName="Products" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="233" y="16"/>
       <rectangleSize width="153"/>
-    </shape>
-  
-    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="-149" y="135"/>
-      <rectangleSize height="30" width="160"/>
-    </shape>
-    <shape modelObjectName="Products" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="153.25146484375"/>
-    </shape>
-    <shape modelObjectName="Orders" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="145.91455078125"/>
-    </shape>
-  </shapes>
+    </shape></shapes>
 </layout>
 </Calculation:scenario>

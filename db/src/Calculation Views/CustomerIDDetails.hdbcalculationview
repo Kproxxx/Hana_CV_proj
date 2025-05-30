@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CustomerIDDetails" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" application="BAS" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" mdsCubeConversionExecution="AT_LOADING_TIME">
 <descriptions defaultDescription="CustomerIDDetails.hdbcalculationview"/>
-<localVariables>
-  <variable id="County">
-    <descriptions defaultDescription="County"/>
-    <variableProperties datatype="NVARCHAR" length="512" mandatory="true" defaultValue="">
-      <valueDomain type="AttributeValue"/>
-      <selection multiLine="true" type="SingleValue"/>
-    </variableProperties>
-  </variable>
-</localVariables>
+<localVariables/>
 <variableMappings/>
 <dataSources>
   <DataSource id="Orders">
@@ -19,7 +11,28 @@
 <snapshotProcedures/>
 <calculationViews/>
 <logicalModel id="Orders">
-  <attributes/>
+  <attributes>
+    <attribute id="OrderID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OrderID"/>
+      <keyMapping columnObjectName="Orders" columnName="OrderID"/>
+    </attribute>
+    <attribute id="CustomerID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerID"/>
+      <keyMapping columnObjectName="Orders" columnName="CustomerID"/>
+    </attribute>
+    <attribute id="EmployeeID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EmployeeID"/>
+      <keyMapping columnObjectName="Orders" columnName="EmployeeID"/>
+    </attribute>
+    <attribute id="OrderDate" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OrderDate"/>
+      <keyMapping columnObjectName="Orders" columnName="OrderDate"/>
+    </attribute>
+    <attribute id="ShipperID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ShipperID"/>
+      <keyMapping columnObjectName="Orders" columnName="ShipperID"/>
+    </attribute>
+  </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
   <calculatedMeasures/>
